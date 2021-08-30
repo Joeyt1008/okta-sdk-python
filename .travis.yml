@@ -35,7 +35,15 @@ jobs:
       script: 
         - echo "Running integration tests..."
         - pytest tests/integration/
+        
     - stage: code_style_test
+      name: "Flake8 Check"
+      script: 
+        - echo "Code Style check..."
+        - "flake8 --extend-ignore=E501 okta/"    
+    - stage: code_style_test
+      python: 3.8
+      arch: arm64
       name: "Flake8 Check"
       script: 
         - echo "Code Style check..."
